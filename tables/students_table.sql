@@ -4,6 +4,6 @@ CREATE TABLE students (
 -- The foreign key name is always {other_table_singular}_id
   cohort_id int,
   constraint fk_cohort foreign key(cohort_id)
-    references cohort(id)
+    references cohorts(id)
     on delete cascade
 );
