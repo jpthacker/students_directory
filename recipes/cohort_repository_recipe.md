@@ -65,14 +65,14 @@ Define the attributes of your Model class. You can usually map the table columns
 class Student
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :cohort_name
+  attr_accessor :id, :student_name, :cohort_id
 end
 
 # Table name: cohorts
 
 # (in lib/cohort.rb)
 class Cohort
-    attr_accessor :id, :name, :cohort_name
+    attr_accessor :id, :cohort_name, :start_date, :students
 
     def initialize
         @students = []
@@ -88,15 +88,15 @@ class CohortRepository
   # One argument: the id (number)
   def find_with_students(id)
     # Executes the SQL query:
-    #   SELECT 
-    #     cohorts.id,
-    #     cohort_name,
-    #     cohorts.start_date,
-    #     students.id AS student_id,
-    #     student_name, 
-    #   FROM cohorts WHERE id = $1;
-    #   JOIN students ON students.cohort_id = cohorts.id
-    #   WHERE cohorts.id = $1;
+        # SELECT 
+        #     cohorts.id,
+        #     cohort_name,
+        #     cohorts.start_date,
+        #     students.id AS student_id,
+        #     student_name
+        # FROM cohorts
+        # JOIN students ON students.cohort_id = cohorts.id
+        # WHERE cohorts.id = $1;
 
     # Returns a single Cohort object containing an array of Student objects.
   end
