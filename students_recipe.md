@@ -105,19 +105,15 @@ Replace the relevant bits in this example with your own:
 ## 4. Write the SQL.
 
 ```sql
--- EXAMPLE
--- file: albums_table.sql
+-- file: cohorts_table.sql
 
--- Replace the table name, columm names and types.
-
--- Create the table without the foreign key first.
-CREATE TABLE cohort (
+CREATE TABLE cohorts (
   id SERIAL PRIMARY KEY,
   cohort_name text,
   start_date date
 );
 
--- Then the table with the foreign key first.
+-- file: students_table.sql
 CREATE TABLE students (
   id SERIAL PRIMARY KEY,
   student_name text,
